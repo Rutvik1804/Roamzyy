@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 216 87% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 216 87% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 216 87% 15%;
+
+    --primary: 209 100% 40%;
+    --primary-foreground: 0 0% 100%;
+
+    --primary-light: 220 53% 43%;
+
+    --secondary: 220 53% 43%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 210 40% 96%;
+    --muted-foreground: 216 20% 46%;
+
+    --accent: 60 100% 50%;
+    --accent-foreground: 0 0% 0%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 214 32% 91%;
+    --input: 214 32% 91%;
+    --ring: 209 100% 40%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    --footer-bg: 216 87% 10%;
+    --footer-foreground: 210 40% 90%;
+
+    --gradient-primary: linear-gradient(135deg, #008acc, #2d3d7c);
+    --gradient-hero: linear-gradient(135deg, #008acc 0%, #3564af 50%, #2d3d7c 100%);
+    --gradient-dark: linear-gradient(135deg, hsl(216, 87%, 10%), hsl(216, 87%, 20%));
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer components {
+  .gradient-primary {
+    background: linear-gradient(135deg, #008acc, #2d3d7c);
+  }
+
+  .gradient-hero-overlay {
+    background: linear-gradient(180deg, rgba(10, 61, 145, 0.6) 0%, rgba(15, 94, 255, 0.3) 50%, rgba(10, 61, 145, 0.7) 100%);
+  }
+
+  .glass-effect {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .glass-header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #008acc, #2d3d7c);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-hover {
+    @apply transition-all duration-500;
+  }
+  .card-hover:hover {
+    @apply shadow-2xl;
+    transform: translateY(-8px);
+  }
+
+  .image-zoom {
+    @apply transition-transform duration-700;
+  }
+  .image-zoom:hover {
+    @apply scale-110;
+  }
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(210, 40%, 96%);
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(220, 100%, 53%);
+  border-radius: 4px;
+}
+
+/* Infinite scroll animations */
+@keyframes scroll-left {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+@keyframes scroll-right {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes spin-slow {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes calendar-flip {
+  0% { transform: perspective(400px) rotateX(0deg); opacity: 1; }
+  50% { transform: perspective(400px) rotateX(-90deg); opacity: 0; }
+  51% { transform: perspective(400px) rotateX(90deg); opacity: 0; }
+  100% { transform: perspective(400px) rotateX(0deg); opacity: 1; }
+}
+
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
+}
+
+.animate-scroll-right {
+  animation: scroll-right 30s linear infinite;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+.animate-calendar-flip {
+  animation: calendar-flip 3s ease-in-out infinite;
+}
+
+/* Pause on hover */
+.pause-on-hover:hover .animate-scroll-left,
+.pause-on-hover:hover .animate-scroll-right {
+  animation-play-state: paused;
+}
