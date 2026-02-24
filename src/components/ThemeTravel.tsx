@@ -1,5 +1,6 @@
 import { useRef, useEffect, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import themeAdventure from '@/assets/theme-adventure.jpg';
 import themeRelaxing from '@/assets/theme-relaxing.jpg';
 import themeEnergy from '@/assets/theme-energy.jpg';
@@ -70,12 +71,12 @@ const ThemeTravel = () => {
                 Pick a mood, and we'll craft the perfect journey. From adrenaline-pumping adventures
                 to soul-soothing retreats — your ideal trip awaits.
               </p>
-              <a
-                href="#contact"
+              <Link
+                to="/themes"
                 className="inline-flex self-start px-8 py-3.5 bg-accent text-accent-foreground font-bold rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300"
               >
                 Explore Themes
-              </a>
+              </Link>
             </div>
 
             {/* Right - Blue patterned background with fanned cards */}

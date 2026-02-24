@@ -70,7 +70,8 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
         >
-          Explore The World<br />With Roamzyy
+          Roamzy<br />
+          <span className="text-3xl md:text-5xl lg:text-6xl">Journeys made easy</span>
         </motion.h1>
         <motion.p
           className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl mx-auto font-light drop-shadow-[0_2px_10px_rgba(0,0,0,0.5)]"
@@ -78,7 +79,7 @@ const HeroSection = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.5 }}
         >
-          Curated journeys designed for unforgettable experiences.
+          Your trusted partner for unforgettable travel experiences across the world
         </motion.p>
         <motion.div
           className="flex flex-col sm:flex-row gap-4 justify-center"

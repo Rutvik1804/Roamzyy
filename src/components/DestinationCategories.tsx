@@ -1,6 +1,7 @@
 import { motion } from 'framer-motion';
 import { useInView } from 'framer-motion';
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import destInternational from '@/assets/dest-international.jpg';
 import destIndia from '@/assets/dest-india.jpg';
 
@@ -12,18 +13,21 @@ const destinations = [
     description: 'Explore iconic global destinations with curated luxury experiences.',
     image: destInternational,
     cta: 'View International Trips',
+    link: '/international',
   },
   {
     title: 'India',
     description: 'Discover the rich culture, heritage and beauty across incredible India.',
     image: destIndia,
     cta: 'Explore India',
+    link: '/india',
   },
   {
-    title: 'HoneyMoon',
+    title: 'Honeymoon',
     description: 'Romantic getaways designed for your most special moments together.',
     image: destHoneymoon,
     cta: 'Plan Your Honeymoon',
+    link: '/honeymoon',
   },
 ];
 
@@ -52,27 +56,30 @@ const DestinationCategories = () => {
           {destinations.map((dest, i) => (
             <motion.div
               key={dest.title}
-              className="group relative overflow-hidden rounded-2xl h-80 lg:h-96 card-hover cursor-pointer"
               initial={{ opacity: 0, y: 40 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: i * 0.15 }}
             >
-              <img
-                src={dest.image}
-                alt={dest.title}
-                className="w-full h-full object-cover image-zoom"
-                loading="lazy"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/30 to-transparent" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
-                <h3 className="text-2xl lg:text-3xl font-display font-bold text-primary-foreground mb-2">
-                  {dest.title}
-                </h3>
-                <p className="text-primary-foreground/80 text-sm mb-4">{dest.description}</p>
-                <span className="inline-flex px-5 py-2 bg-accent text-accent-foreground text-sm font-bold rounded-full group-hover:scale-105 transition-transform">
-                  {dest.cta}
-                </span>
-              </div>
+              <Link to={dest.link}>
+                <div className="group relative overflow-hidden rounded-2xl h-80 lg:h-96 card-hover cursor-pointer">
+                  <img
+                    src={dest.image}
+                    alt={dest.title}
+                    className="w-full h-full object-cover image-zoom"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-secondary/90 via-secondary/30 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-6 lg:p-8">
+                    <h3 className="text-2xl lg:text-3xl font-display font-bold text-primary-foreground mb-2">
+                      {dest.title}
+                    </h3>
+                    <p className="text-primary-foreground/80 text-sm mb-4">{dest.description}</p>
+                    <span className="inline-flex px-5 py-2 bg-accent text-accent-foreground text-sm font-bold rounded-full group-hover:scale-105 transition-transform">
+                      {dest.cta}
+                    </span>
+                  </div>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>

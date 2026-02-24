@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Preloader from '@/components/Preloader';
+import Preloader3D from '@/components/Preloader3D';
 import Header from '@/components/Header';
 import HeroSection from '@/components/HeroSection';
 import DestinationCategories from '@/components/DestinationCategories';
@@ -11,13 +11,14 @@ import VideoTestimonials from '@/components/VideoTestimonials';
 import ContactForm from '@/components/ContactForm';
 import Footer from '@/components/Footer';
 import FloatingButtons from '@/components/FloatingButtons';
+import EnquiryPopup from '@/components/EnquiryPopup';
 
 const Index = () => {
   const [loading, setLoading] = useState(true);
 
   return (
     <>
-      {loading && <Preloader onComplete={() => setLoading(false)} />}
+      {loading && <Preloader3D onComplete={() => setLoading(false)} />}
       <div className={loading ? 'opacity-0' : 'opacity-100 transition-opacity duration-500'}>
         <Header />
         <main>
@@ -32,6 +33,7 @@ const Index = () => {
         </main>
         <Footer />
         <FloatingButtons />
+        <EnquiryPopup />
       </div>
     </>
   );

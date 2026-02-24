@@ -1,19 +1,34 @@
 import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Menu, X } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import logo from '@/assets/roamzyy-logo.png';
 
 const internationalDestinations = [
-  'Dubai', 'Bali', 'Thailand', 'Vietnam', 'Maldives',
-  'Singapore', 'Europe', 'Malaysia', 'Kazakhstan', 'Bhutan'
+  { name: 'Dubai', path: '/international/dubai' },
+  { name: 'Bali', path: '/international/bali' },
+  { name: 'Thailand', path: '/international/thailand' },
+  { name: 'Vietnam', path: '/international/vietnam' },
+  { name: 'Maldives', path: '/international/maldives' },
+  { name: 'Singapore', path: '/international/singapore' },
+  { name: 'Europe', path: '/international/europe' },
+  { name: 'Malaysia', path: '/international/malaysia' },
+  { name: 'Kazakhstan', path: '/international/kazakhstan' },
+  { name: 'Bhutan', path: '/international/bhutan' }
 ];
 
-const indiaDestinations = ['Ladakh', 'Kashmir', 'Kerala', 'Rajasthan', 'Andaman'];
+const indiaDestinations = [
+  { name: 'Ladakh', path: '/india/ladakh' },
+  { name: 'Kashmir', path: '/india/kashmir' },
+  { name: 'Kerala', path: '/india/kerala' },
+  { name: 'Rajasthan', path: '/india/rajasthan' },
+  { name: 'Andaman', path: '/india/andaman' }
+];
 
 const moreLinks = [
-  { label: 'Visa', href: '#' },
-  { label: 'About Us', href: '#' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'Visa', href: '/visa' },
+  { label: 'About Us', href: '/about' },
+  { label: 'Contact', href: '/contact' },
 ];
 
 const Header = () => {
@@ -47,9 +62,9 @@ const Header = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <div className={`flex items-center justify-between h-20 ${!scrolled ? 'bg-black/30 backdrop-blur-md rounded-2xl px-6 my-2' : ''}`}>
           {/* Logo */}
-          <a href="/" className="flex-shrink-0">
-            <img src={logo} alt="Roamzyy" className={`h-14 w-auto transition-all duration-500 ${scrolled ? '' : 'brightness-0 invert'}`} />
-          </a>
+          <Link to="/" className="flex-shrink-0">
+            <img src={logo} alt="Roamzy" className="h-24 w-auto transition-all duration-500" />
+          </Link>
 
           {/* Desktop Nav */}
           <nav className="hidden lg:flex items-center gap-1">
@@ -59,9 +74,9 @@ const Header = () => {
               onMouseEnter={() => handleMouseEnter('international')}
               onMouseLeave={handleMouseLeave}
             >
-              <button className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-primary/10 ${scrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
+              <Link to="/international" className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-primary/10 ${scrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
                 International <ChevronDown className="w-3.5 h-3.5" />
-              </button>
+              </Link>
               {openDropdown === 'international' && (
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
@@ -70,9 +85,9 @@ const Header = () => {
                 >
                   <div className="grid grid-cols-2 gap-2">
                     {internationalDestinations.map((d) => (
-                      <a key={d} href="#" className="px-3 py-2 text-sm text-foreground hover:bg-primary/10 rounded-lg transition-colors font-medium">
-                        {d}
-                      </a>
+                      <Link key={d.name} to={d.path} className="px-3 py-2 text-sm text-foreground hover:bg-primary/10 rounded-lg transition-colors font-medium">
+                        {d.name}
+                      </Link>
                     ))}
                   </div>
                 </motion.div>
@@ -85,9 +100,9 @@ const Header = () => {
               onMouseEnter={() => handleMouseEnter('india')}
               onMouseLeave={handleMouseLeave}
             >
-              <button className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-primary/10 ${scrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
+              <Link to="/india" className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-primary/10 ${scrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
                 India <ChevronDown className="w-3.5 h-3.5" />
-              </button>
+              </Link>
               {openDropdown === 'india' && (
                 <motion.div
                   initial={{ opacity: 0, y: 8 }}
@@ -95,20 +110,20 @@ const Header = () => {
                   className="absolute top-full left-0 mt-1 bg-card rounded-xl shadow-xl border border-border p-4 min-w-[180px]"
                 >
                   {indiaDestinations.map((d) => (
-                    <a key={d} href="#" className="block px-3 py-2 text-sm text-foreground hover:bg-primary/10 rounded-lg transition-colors font-medium">
-                      {d}
-                    </a>
+                    <Link key={d.name} to={d.path} className="block px-3 py-2 text-sm text-foreground hover:bg-primary/10 rounded-lg transition-colors font-medium">
+                      {d.name}
+                    </Link>
                   ))}
                 </motion.div>
               )}
             </div>
 
-            <a href="#" className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-primary/10 ${scrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
-              HoneyMoon
-            </a>
-            <a href="#" className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-primary/10 ${scrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
-              Theme
-            </a>
+            <Link to="/honeymoon" className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-primary/10 ${scrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
+              Honeymoon
+            </Link>
+            <Link to="/themes" className={`px-4 py-2 text-sm font-medium transition-colors rounded-lg hover:bg-primary/10 ${scrolled ? 'text-foreground' : 'text-primary-foreground'}`}>
+              Themes
+            </Link>
 
             {/* More */}
             <div
@@ -126,9 +141,9 @@ const Header = () => {
                   className="absolute top-full right-0 mt-1 bg-card rounded-xl shadow-xl border border-border p-4 min-w-[160px]"
                 >
                   {moreLinks.map((l) => (
-                    <a key={l.label} href={l.href} className="block px-3 py-2 text-sm text-foreground hover:bg-primary/10 rounded-lg transition-colors font-medium">
+                    <Link key={l.label} to={l.href} className="block px-3 py-2 text-sm text-foreground hover:bg-primary/10 rounded-lg transition-colors font-medium">
                       {l.label}
-                    </a>
+                    </Link>
                   ))}
                 </motion.div>
               )}
@@ -137,12 +152,12 @@ const Header = () => {
 
           {/* CTA + Mobile */}
           <div className="flex items-center gap-3">
-            <a
-              href="#contact"
+            <Link
+              to="/contact"
               className="hidden lg:inline-flex px-6 py-2.5 bg-accent text-accent-foreground text-sm font-bold rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300"
             >
               Plan Your Trip
-            </a>
+            </Link>
             <button
               className="lg:hidden p-2"
               onClick={() => setMobileOpen(!mobileOpen)}
@@ -167,21 +182,21 @@ const Header = () => {
             <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider px-3 pt-2">International</p>
             <div className="grid grid-cols-2 gap-1">
               {internationalDestinations.map(d => (
-                <a key={d} href="#" className="px-3 py-2 text-sm text-foreground hover:bg-primary/10 rounded-lg">{d}</a>
+                <Link key={d.name} to={d.path} className="px-3 py-2 text-sm text-foreground hover:bg-primary/10 rounded-lg">{d.name}</Link>
               ))}
             </div>
             <p className="text-xs font-bold text-muted-foreground uppercase tracking-wider px-3 pt-2">India</p>
             {indiaDestinations.map(d => (
-              <a key={d} href="#" className="block px-3 py-2 text-sm text-foreground hover:bg-primary/10 rounded-lg">{d}</a>
+              <Link key={d.name} to={d.path} className="block px-3 py-2 text-sm text-foreground hover:bg-primary/10 rounded-lg">{d.name}</Link>
             ))}
-            <a href="#" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-primary/10 rounded-lg">HoneyMoon</a>
-            <a href="#" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-primary/10 rounded-lg">Theme</a>
+            <Link to="/honeymoon" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-primary/10 rounded-lg">Honeymoon</Link>
+            <Link to="/themes" className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-primary/10 rounded-lg">Themes</Link>
             {moreLinks.map(l => (
-              <a key={l.label} href={l.href} className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-primary/10 rounded-lg">{l.label}</a>
+              <Link key={l.label} to={l.href} className="block px-3 py-2 text-sm font-medium text-foreground hover:bg-primary/10 rounded-lg">{l.label}</Link>
             ))}
-            <a href="#contact" className="block text-center px-6 py-3 bg-accent text-accent-foreground text-sm font-bold rounded-full mt-4">
+            <Link to="/contact" className="block text-center px-6 py-3 bg-accent text-accent-foreground text-sm font-bold rounded-full mt-4">
               Plan Your Trip
-            </a>
+            </Link>
           </div>
         </motion.div>
       )}
