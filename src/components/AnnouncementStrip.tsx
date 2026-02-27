@@ -9,7 +9,7 @@ const announcements = [
 
 const AnnouncementStrip = () => {
   return (
-    <div className="w-full bg-[#00ff00] overflow-hidden py-1.5 z-[60] relative">
+    <div className="w-full bg-[#FFFF00] overflow-hidden py-1.5 z-[60] relative">
       <div className="animate-scroll-left flex gap-16 w-max">
         {announcements.map((text, i) => (
           <span key={i} className="text-black text-xs font-bold whitespace-nowrap">

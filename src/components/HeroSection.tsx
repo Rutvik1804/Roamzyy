@@ -36,7 +36,7 @@ const HeroSection = () => {
 
   return (
     <section className="relative min-h-screen flex flex-col overflow-hidden">
-      <AnnouncementStrip />
+      {/* AnnouncementStrip hidden */}
 
       <div className="relative flex-1 flex flex-col justify-center">
       {/* Backgrounds */}
@@ -106,7 +106,7 @@ const HeroSection = () => {
               key={i}
               className="glass-effect px-6 py-3 rounded-full text-primary-foreground text-sm font-medium whitespace-nowrap hover:scale-105 hover:shadow-lg transition-all duration-300 cursor-pointer"
             >
-              📍 {loc}
+               {loc}
             </div>
           ))}
         </div>

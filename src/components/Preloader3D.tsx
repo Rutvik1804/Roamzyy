@@ -589,7 +589,7 @@ const Preloader3D = ({ onComplete }: Preloader3DProps) => {
           <h1
             className={`text-4xl md:text-5xl font-bold tracking-wider transition-all duration-500 ${showBrand ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
             style={{
-              color: '#3564af',
+              color: '#ffffff',
               fontFamily: 'Poppins, sans-serif',
               textShadow: '0 2px 20px rgba(255,255,255,0.3)',
               transitionDelay: '100ms',
