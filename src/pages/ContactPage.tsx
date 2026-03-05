@@ -115,7 +115,7 @@ const ContactPage = () => {
 
               <button
                 type="submit"
-                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-2.5 rounded-full text-sm transition-all duration-300 transform hover:scale-105 shadow-md"
               >
                 Send Message
               </button>
@@ -232,7 +232,7 @@ const ContactPage = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
                 href="tel:+91XXXXXXXXXX"
-                className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-4 px-12 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-block"
+                className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-2.5 px-8 rounded-full text-sm transition-all duration-300 transform hover:scale-105 shadow-md inline-block"
               >
                 Call Now
               </a>
@@ -240,7 +240,7 @@ const ContactPage = () => {
                 href="https://wa.me/91XXXXXXXXXX"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-white hover:bg-gray-100 text-primary font-bold py-4 px-12 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg inline-block"
+                className="bg-white hover:bg-gray-100 text-primary font-semibold py-2.5 px-8 rounded-full text-sm transition-all duration-300 transform hover:scale-105 shadow-md inline-block"
               >
                 WhatsApp Us
               </a>

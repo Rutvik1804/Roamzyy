@@ -23,62 +23,63 @@ const StickyPricingCard = ({
       initial={{ opacity: 0, x: -30 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.6 }}
-      className="sticky top-24 bg-white rounded-3xl shadow-2xl p-6 border border-gray-100"
+      className="sticky top-[180px] bg-white rounded-2xl shadow-xl p-5 border border-gray-100"
     >
-      <div className="mb-6">
-        <h3 className="text-2xl font-bold text-gray-900 mb-2">{destination}</h3>
+      <div className="mb-4">
+        <h3 className="text-lg font-bold text-gray-900 mb-1">{destination}</h3>
         <div className="flex items-baseline gap-2">
-          <span className="text-4xl font-bold text-primary">₹{price}</span>
-          <span className="text-gray-500">/ person</span>
+          <span className="text-2xl font-bold text-primary">₹{price}</span>
+          <span className="text-gray-500 text-sm">/ person</span>
         </div>
       </div>
 
-      <div className="space-y-4 mb-6">
-        <div className="flex items-center gap-3 text-gray-700">
-          <Calendar className="w-5 h-5 text-primary" />
+      <div className="space-y-3 mb-4">
+        <div className="flex items-center gap-2 text-gray-700 text-sm">
+          <Calendar className="w-4 h-4 text-primary" />
           <span className="font-medium">{duration}</span>
         </div>
 
-        <div className="border-t pt-4">
-          <h4 className="font-bold text-gray-900 mb-3">Package Inclusions</h4>
-          <ul className="space-y-2">
-            {inclusions.map((item, index) => (
-              <li key={index} className="flex items-start gap-2 text-sm text-gray-600">
-                <span className="text-green-500 mt-1">✓</span>
+        <div className="border-t pt-3">
+          <h4 className="font-bold text-gray-900 mb-2 text-sm">Package Inclusions</h4>
+          <ul className="space-y-1.5">
+            {inclusions.slice(0, 5).map((item, index) => (
+              <li key={index} className="flex items-start gap-2 text-xs text-gray-600">
+                <span className="text-green-500 mt-0.5">✓</span>
                 <span>{item}</span>
               </li>
             ))}
+            {inclusions.length > 5 && (
+              <li className="text-xs text-primary font-medium mt-2">+{inclusions.length - 5} more inclusions</li>
+            )}
           </ul>
         </div>
       </div>
 
-      <div className="space-y-3">
+      <div className="space-y-2">
         <button
           onClick={onEnquiry}
-          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-4 rounded-full transition-all duration-300 transform hover:scale-105 shadow-lg"
+          className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-2.5 rounded-full text-sm transition-all duration-300 transform hover:scale-105 shadow-md"
         >
           Quick Enquiry
         </button>
 
-        <button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 rounded-full flex items-center justify-center gap-2 transition-all duration-300">
-          <Phone className="w-4 h-4" />
-          Call Now: +91-XXXXXXXXXX
+        <button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-2 rounded-full flex items-center justify-center gap-2 text-sm transition-all duration-300">
+          <Phone className="w-3.5 h-3.5" />
+          Call Now
         </button>
 
         <button
           onClick={onDownload}
-          className="w-full border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold py-3 rounded-full flex items-center justify-center gap-2 transition-all duration-300"
+          className="w-full border border-primary text-primary hover:bg-primary hover:text-white font-semibold py-2 rounded-full flex items-center justify-center gap-2 text-sm transition-all duration-300"
         >
-          <Download className="w-4 h-4" />
-          Download Itinerary
+          <Download className="w-3.5 h-3.5" />
+          Download PDF
         </button>
       </div>
 
-      <div className="mt-6 text-center">
-        <p className="text-xs text-gray-500">
-          * Prices are subject to availability
-        </p>
-      </div>
+      <p className="mt-3 text-center text-[10px] text-gray-400">
+        * Prices subject to availability
+      </p>
     </motion.div>
   );
 };

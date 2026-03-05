@@ -108,7 +108,7 @@ const EnquiryPopup = () => {
 
               <button
                 type="submit"
-                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-4 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="w-full bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-2.5 rounded-full text-sm transition-all duration-300 transform hover:scale-105 shadow-md"
               >
                 Get Best Offers
               </button>

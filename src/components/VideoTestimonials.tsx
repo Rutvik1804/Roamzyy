@@ -91,9 +91,46 @@ const VideoTestimonials = () => {
           </p>
         </motion.div>
 
-        {/* Cards */}
+        {/* Cards - Horizontal scroll on mobile, grid on desktop */}
         <div className="relative max-w-5xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-6">
+          {/* Mobile horizontal scroll */}
+          <div className="md:hidden overflow-hidden">
+            <div className="flex gap-4 animate-scroll-left pause-on-hover w-max">
+              {[...testimonials, ...testimonials].map((t, idx) => (
+                <div
+                  key={`mobile-${idx}`}
+                  className="relative rounded-2xl overflow-hidden shadow-xl cursor-pointer flex-shrink-0"
+                  style={{ width: '200px', height: '280px' }}
+                  onClick={() => handlePlay(idx % testimonials.length)}
+                >
+                  <video
+                    src={t.video}
+                    muted
+                    loop
+                    playsInline
+                    autoPlay
+                    preload="auto"
+                    crossOrigin="anonymous"
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+                  <div className="absolute bottom-0 left-0 right-0 p-3">
+                    <div className="flex gap-0.5 mb-1">
+                      {Array.from({ length: t.rating }).map((_, i) => (
+                        <Star key={i} className="w-3 h-3 fill-accent text-accent" />
+                      ))}
+                    </div>
+                    <p className="text-primary-foreground text-xs italic mb-1 line-clamp-2">"{t.quote}"</p>
+                    <p className="text-primary-foreground font-bold text-xs">{t.name}</p>
+                    <p className="text-primary-foreground/60 text-xs">{t.trip}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Desktop grid */}
+          <div className="hidden md:grid md:grid-cols-3 gap-6">
             {visibleCards().map((idx, pos) => {
               const t = testimonials[idx];
               return (
@@ -139,8 +176,8 @@ const VideoTestimonials = () => {
             })}
           </div>
 
-          {/* Navigation */}
-          <div className="flex items-center justify-center gap-4 mt-8">
+          {/* Navigation - Desktop only */}
+          <div className="hidden md:flex items-center justify-center gap-4 mt-8">
             <button
               onClick={() => setActive((prev) => (prev - 1 + testimonials.length) % testimonials.length)}
               className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center hover:bg-primary hover:text-primary-foreground transition-colors"

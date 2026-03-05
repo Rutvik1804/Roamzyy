@@ -91,7 +91,7 @@ const ThemeTravel = () => {
               </p>
               <Link
                 to="/themes"
-                className="inline-flex self-start px-8 py-3.5 bg-yellow-400 text-black font-bold rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300"
+                className="inline-flex self-start px-6 py-2.5 bg-yellow-400 text-black font-semibold rounded-full text-sm hover:shadow-lg hover:scale-105 transition-all duration-300"
               >
                 Explore Themes
               </Link>

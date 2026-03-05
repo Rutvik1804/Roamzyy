@@ -1,15 +1,28 @@
 import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
-import { CheckCircle, Phone, Globe } from 'lucide-react';
-import whyBg from '@/assets/why-choose-bg.jpg';
+import { Users, Ban, Heart, Shield } from 'lucide-react';
 
-const reasons = [
-  'Expert Knowledge and Experience',
-  'Customized Travel Packages for Every Budget',
-  'Wide Range of Destinations',
-  '24/7 Support',
-  'Handpicked Experiences',
-  'Visa Assistance',
+const features = [
+  {
+    icon: Users,
+    title: 'Travel with your tribe',
+    description: 'Meet like-minded people who share your travel style and values.',
+  },
+  {
+    icon: Ban,
+    title: 'Zero planning stress',
+    description: 'We handle every detail. You just show up and experience.',
+  },
+  {
+    icon: Heart,
+    title: 'Curated, not crowded',
+    description: 'Small groups, handpicked experiences, authentic connections.',
+  },
+  {
+    icon: Shield,
+    title: 'End-to-end care',
+    description: 'From booking to boarding to bonding — we have got you covered.',
+  },
 ];
 
 const WhyChooseUs = () => {
@@ -17,50 +30,39 @@ const WhyChooseUs = () => {
   const inView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section className="py-20 lg:py-28" ref={ref}>
+    <section className="py-20 lg:py-28 bg-[#f5f3ef]" ref={ref}>
       <div className="container mx-auto px-4">
         <motion.div
-          className="relative rounded-3xl overflow-hidden min-h-[420px]"
-          initial={{ opacity: 0, y: 40 }}
+          className="text-center mb-14"
+          initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.7 }}
+          transition={{ duration: 0.6 }}
         >
-          {/* Background image */}
-          <img src={whyBg} alt="" className="absolute inset-0 w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-r from-primary/90 via-primary/70 to-transparent" />
-
-          <div className="relative z-10 grid lg:grid-cols-2 gap-8 p-8 lg:p-14 items-center">
-            {/* Left - Content */}
-            <div>
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-primary-foreground mb-8 leading-tight">
-                Top Reasons To Choose<br />Roamzyy
-              </h2>
-              <p className="text-primary-foreground/80 text-sm font-semibold uppercase tracking-wider mb-4">Top Reasons</p>
-              <ul className="space-y-3 mb-8">
-                {reasons.map((reason) => (
-                  <li key={reason} className="flex items-center gap-3 text-primary-foreground font-medium">
-                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0" />
-                    <span className="text-sm md:text-base uppercase tracking-wide">{reason}</span>
-                  </li>
-                ))}
-              </ul>
-              <div className="flex flex-wrap items-center gap-4">
-                <a href="#contact" className="px-6 py-3 bg-accent text-accent-foreground font-bold rounded-full text-sm hover:shadow-lg hover:scale-105 transition-all duration-300">
-                  Contact Us!
-                </a>
-                <span className="flex items-center gap-2 text-primary-foreground text-sm">
-                  <Phone className="w-4 h-4" /> +91 98765 43210
-                </span>
-                <span className="flex items-center gap-2 text-primary-foreground text-sm">
-                  <Globe className="w-4 h-4" /> roamzyy.com
-                </span>
-              </div>
-            </div>
-
-            {/* Right side is the background image showing through */}
-            <div className="hidden lg:block" />
-          </div>
+          <h2 className="text-3xl md:text-5xl font-display font-bold text-foreground mb-4">
+            Why Roamzyy?
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto">
+            Because travel is better when someone else does the planning.
+          </p>
         </motion.div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {features.map((feature, index) => (
+            <motion.div
+              key={feature.title}
+              className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
+              initial={{ opacity: 0, y: 30 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+            >
+              <div className="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-5">
+                <feature.icon className="w-6 h-6 text-primary" />
+              </div>
+              <h3 className="text-lg font-bold text-foreground mb-2">{feature.title}</h3>
+              <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </section>
   );

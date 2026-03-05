@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import logo from '@/assets/roamzyy-logo.png';
+import logo from '@/assets/Roamzyy-White-Logo.png';
 import footerBg from '@/assets/footer-bg.jpg';
 import footerSkyline from '@/assets/footer-image.png';
 import gallery1 from '@/assets/gallery-1.jpg';
@@ -52,7 +52,7 @@ const Footer = () => {
         {/* Logo + tagline */}
         <div className="text-center mb-12">
           <Link to="/">
-            <img src={logo} alt="Roamzy" className="h-24 mx-auto mb-3 brightness-0 invert" />
+            <img src={logo} alt="Roamzy" className="h-32 mx-auto  brightness-0 invert" />
           </Link>
           <p className="text-white/70 text-sm tracking-widest uppercase">Journeys Made Easy</p>
         </div>
@@ -115,6 +115,10 @@ const Footer = () => {
               </a>
             ))}
           </div>
+          
+          <p className="text-white/50 text-xs">
+            © {new Date().getFullYear()} Roamzy Travels Pvt Ltd. All rights reserved.
+          </p>
           {/* Skyline illustration - Repeated 5 times */}
           <div className="mt-8 mb-6 overflow-hidden">
             <div className="flex items-end justify-center">
@@ -125,9 +129,6 @@ const Footer = () => {
               <img src={footerSkyline} alt="" className="h-24 w-auto object-cover opacity-60 brightness-250" />
             </div>
           </div>
-          <p className="text-white/50 text-xs">
-            © {new Date().getFullYear()} Roamzy Travels Pvt Ltd. All rights reserved.
-          </p>
         </div>
       </div>
     </footer>

@@ -20,7 +20,7 @@ const FloatingButtons = () => {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           exit={{ opacity: 0, x: 40 }}
-          className="fixed bottom-6 right-6 z-50 flex flex-col items-center gap-3"
+          className="fixed bottom-24 right-6 z-40 flex flex-col items-center gap-3"
         >
           {/* Scroll to top */}
           <button

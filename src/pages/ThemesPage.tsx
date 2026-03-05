@@ -79,16 +79,16 @@ const ThemesPage = () => {
       <Header />
 
       {/* Hero Section with Dynamic Scrolling Images */}
-      <div className="relative h-screen overflow-hidden">
+      <div className="relative h-screen overflow-hidden bg-black">
         {/* Background Image Slideshow */}
         <div className="absolute inset-0">
-          <div className="grid grid-cols-4 h-full">
+          <div className="grid grid-cols-4 h-screen">
             {themes.slice(0, 4).map((theme, idx) => (
-              <div key={idx} className="relative overflow-hidden">
+              <div key={idx} className="relative overflow-hidden h-screen">
                 <img
                   src={theme.image}
                   alt={theme.name}
-                  className="w-full h-full object-cover animate-float"
+                  className="w-full h-screen object-cover animate-float"
                   style={{ animationDelay: `${idx * 0.5}s` }}
                 />
               </div>
@@ -134,7 +134,7 @@ const ThemesPage = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {themes.map((theme, index) => (
             <motion.div
               key={index}
@@ -144,7 +144,10 @@ const ThemesPage = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Link to={theme.link}>
-                <div className="group relative overflow-hidden rounded-3xl h-96 card-hover">
+                <div className="group relative overflow-hidden rounded-2xl h-80 card-hover">
+                  {/* Gradient border at bottom */}
+                  <div className={`absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r ${theme.gradient} z-20`} />
+                  
                   {/* Background Image */}
                   <img
                     src={theme.image}
@@ -153,16 +156,16 @@ const ThemesPage = () => {
                   />
 
                   {/* Gradient Overlay */}
-                  <div className={`absolute inset-0 bg-gradient-to-t ${theme.gradient} opacity-60 group-hover:opacity-70 transition-opacity duration-300`} />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent group-hover:from-black/80 transition-all duration-300" />
 
                   {/* Content */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                    <div className="mb-4 transform group-hover:scale-110 transition-transform duration-300">
-                      <theme.icon className="w-16 h-16 text-white" />
+                  <div className="absolute inset-0 flex flex-col items-center justify-end p-5 text-center">
+                    <div className="mb-3 transform group-hover:scale-110 transition-transform duration-300">
+                      <theme.icon className="w-10 h-10 text-white" />
                     </div>
-                    <h3 className="text-3xl font-bold text-white mb-2">{theme.name}</h3>
-                    <p className="text-white/90 mb-4">{theme.description}</p>
-                    <span className="bg-white text-gray-900 px-6 py-2 rounded-full font-semibold transform group-hover:scale-105 transition-transform duration-300">
+                    <h3 className="text-xl font-bold text-white mb-1">{theme.name}</h3>
+                    <p className="text-white/80 text-sm mb-3">{theme.description}</p>
+                    <span className="bg-white text-gray-900 px-5 py-1.5 rounded-full text-sm font-semibold transform group-hover:scale-105 transition-transform duration-300">
                       Explore
                     </span>
                   </div>
@@ -238,7 +241,7 @@ const ThemesPage = () => {
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Let our experts help you discover destinations that match your travel style
             </p>
-            <button className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-4 px-12 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <button className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-2.5 px-8 rounded-full text-sm transition-all duration-300 transform hover:scale-105 shadow-md">
               Get Started
             </button>
           </motion.div>

@@ -94,7 +94,7 @@ const IndiaListing = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {indiaDestinations.map((destination, index) => (
             <DestinationCard
               key={destination.name}
@@ -177,7 +177,7 @@ const IndiaListing = () => {
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Let our travel experts help you create unforgettable memories across India
             </p>
-            <button className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-4 px-12 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <button className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-2.5 px-8 rounded-full text-sm transition-all duration-300 transform hover:scale-105 shadow-md">
               Plan My Trip
             </button>
           </motion.div>

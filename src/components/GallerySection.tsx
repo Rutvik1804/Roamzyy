@@ -34,24 +34,18 @@ const GallerySection = () => {
           {[...images, ...images].map((img, i) => (
             <div key={`r1-${i}`} className="relative w-64 h-80 rounded-2xl overflow-hidden shadow-lg flex-shrink-0 group">
               <img src={img} alt={labels[i % labels.length]} className="w-full h-full object-cover image-zoom" loading="lazy" />
-              <div className="absolute bottom-3 left-3 px-3 py-1 bg-foreground/70 rounded-full text-primary-foreground text-xs font-medium backdrop-blur-sm">
-                📍 {labels[i % labels.length]}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+              <div className="absolute bottom-0 left-0 right-0 p-4 text-center">
+                <span className="text-white text-sm font-semibold tracking-wide">
+                  {labels[i % labels.length]}
+                </span>
               </div>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Row 2 - scroll right */}
-      <div className="pause-on-hover overflow-hidden">
-        <div className="animate-scroll-right flex gap-6 w-max">
-          {[...images.reverse(), ...images].map((img, i) => (
-            <div key={`r2-${i}`} className="relative w-64 h-80 rounded-2xl overflow-hidden shadow-lg flex-shrink-0 group">
-              <img src={img} alt="Travel moment" className="w-full h-full object-cover image-zoom" loading="lazy" />
-            </div>
-          ))}
-        </div>
-      </div>
+      
     </section>
   );
 };

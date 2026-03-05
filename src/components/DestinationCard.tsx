@@ -24,11 +24,14 @@ const DestinationCard = ({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5, delay: index * 0.1 }}
-      className="group relative overflow-hidden rounded-3xl shadow-lg h-[400px] card-hover"
+      className="group relative overflow-hidden rounded-2xl shadow-lg h-[320px] card-hover"
     >
       <Link to={link} className="block h-full">
+        {/* Gradient border at bottom */}
+        <div className="absolute bottom-0 left-0 right-0 h-2 bg-gradient-to-r from-cyan-400 via-blue-500 to-yellow-400 z-20" />
+        
         {/* Image with zoom effect */}
-        <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute inset-0 overflow-hidden rounded-2xl">
           <img
             src={image}
             alt={name}
@@ -37,25 +40,25 @@ const DestinationCard = ({
         </div>
 
         {/* Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
 
         {/* Content */}
-        <div className="absolute inset-0 flex flex-col justify-end p-6">
+        <div className="absolute inset-0 flex flex-col justify-end p-5">
           {/* Price Badge */}
-          <div className="absolute top-6 right-6 bg-accent text-accent-foreground px-4 py-2 rounded-full font-bold shadow-lg">
+          <div className="absolute top-4 right-4 bg-accent text-accent-foreground px-3 py-1.5 rounded-full font-bold text-sm shadow-lg">
             ₹{price}
           </div>
 
           {/* Destination Name */}
-          <h3 className="text-3xl font-bold text-white mb-2">{name}</h3>
+          <h3 className="text-2xl font-bold text-white mb-1">{name}</h3>
 
           {/* Description */}
           {description && (
-            <p className="text-white/80 mb-4 line-clamp-2">{description}</p>
+            <p className="text-white/80 text-sm mb-3 line-clamp-2">{description}</p>
           )}
 
           {/* Explore Button */}
-          <button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-3 px-6 rounded-full w-fit transition-all duration-300 transform group-hover:scale-105">
+          <button className="bg-primary hover:bg-primary/90 text-primary-foreground font-medium py-1.5 px-4 rounded-full text-xs w-fit transition-all duration-300 transform group-hover:scale-105">
             Explore Now
           </button>
         </div>

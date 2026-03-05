@@ -38,7 +38,7 @@ const CTASection = () => {
               </p>
               <a
                 href="#contact"
-                className="inline-flex px-8 py-3.5 bg-accent text-accent-foreground font-bold rounded-full hover:shadow-lg hover:scale-105 transition-all duration-300"
+                className="inline-flex px-6 py-2.5 bg-accent text-accent-foreground font-semibold rounded-full text-sm hover:shadow-lg hover:scale-105 transition-all duration-300"
               >
                 Start Planning
               </a>

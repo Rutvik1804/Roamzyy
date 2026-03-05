@@ -40,38 +40,65 @@ const ContactForm = () => {
         <div className="grid lg:grid-cols-5 gap-8 max-w-5xl mx-auto">
           {/* Left info panel */}
           <motion.div
-            className="lg:col-span-2 gradient-primary rounded-3xl p-8 flex flex-col justify-between"
+            className="lg:col-span-2 relative gradient-primary rounded-3xl p-8 overflow-hidden"
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
             transition={{ duration: 0.7, delay: 0.2 }}
           >
-            <div>
-              <h3 className="text-2xl font-display font-bold text-primary-foreground mb-4">Let's Plan Your Journey</h3>
-              <p className="text-primary-foreground/80 text-sm mb-8 leading-relaxed">
+            {/* Decorative elements */}
+            <div className="absolute top-0 right-0 w-40 h-40 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2" />
+            <div className="absolute bottom-0 left-0 w-32 h-32 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2" />
+            <div className="absolute top-1/2 right-4 w-20 h-20 border border-white/10 rounded-full" />
+            
+            {/* Animated dots */}
+            <div className="absolute inset-0 opacity-20 pointer-events-none"
+              style={{
+                backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.3) 1px, transparent 1px)',
+                backgroundSize: '20px 20px',
+              }}
+            />
+
+            <div className="relative z-10">
+              <h3 className="text-2xl font-display font-bold text-primary-foreground mb-3">Let's Plan Your Journey</h3>
+              <p className="text-primary-foreground/80 text-sm mb-6 leading-relaxed">
                 Our travel experts are ready to craft the perfect getaway for you. Reach out and let's start planning!
               </p>
+              
+              {/* Contact Info - Moved up below paragraph */}
+              <div className="space-y-4">
+                <motion.div 
+                  className="flex items-center gap-3 text-primary-foreground group"
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <div className="w-11 h-11 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300 shadow-lg">
+                    <Phone className="w-5 h-5" />
+                  </div>
+                  <span className="text-sm font-medium">+91 98765 43210</span>
+                </motion.div>
+                <motion.div 
+                  className="flex items-center gap-3 text-primary-foreground group"
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <div className="w-11 h-11 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300 shadow-lg">
+                    <Mail className="w-5 h-5" />
+                  </div>
+                  <span className="text-sm font-medium">hello@roamzyy.com</span>
+                </motion.div>
+                <motion.div 
+                  className="flex items-center gap-3 text-primary-foreground group"
+                  whileHover={{ x: 5 }}
+                  transition={{ type: "spring", stiffness: 300 }}
+                >
+                  <div className="w-11 h-11 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center group-hover:bg-white/20 transition-colors duration-300 shadow-lg">
+                    <MapPin className="w-5 h-5" />
+                  </div>
+                  <span className="text-sm font-medium">Mumbai, India</span>
+                </motion.div>
+              </div>
             </div>
-            <div className="space-y-4">
-              <div className="flex items-center gap-3 text-primary-foreground">
-                <div className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center">
-                  <Phone className="w-5 h-5" />
-                </div>
-                <span className="text-sm">+91 98765 43210</span>
-              </div>
-              <div className="flex items-center gap-3 text-primary-foreground">
-                <div className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center">
-                  <Mail className="w-5 h-5" />
-                </div>
-                <span className="text-sm">hello@roamzyy.com</span>
-              </div>
-              <div className="flex items-center gap-3 text-primary-foreground">
-                <div className="w-10 h-10 rounded-full bg-primary-foreground/10 flex items-center justify-center">
-                  <MapPin className="w-5 h-5" />
-                </div>
-                <span className="text-sm">Mumbai, India</span>
-              </div>
-            </div>
-            <div className="mt-8 text-6xl">✈️</div>
+            
           </motion.div>
 
           {/* Right form */}
@@ -113,9 +140,9 @@ const ContactForm = () => {
               <div className="md:col-span-2">
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 px-8 py-4 bg-accent text-accent-foreground font-bold rounded-full text-lg hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
+                  className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-primary text-primary-foreground font-semibold rounded-full text-sm hover:shadow-lg hover:scale-[1.02] transition-all duration-300"
                 >
-                  {submitted ? '✓ Sent!' : <><Send className="w-5 h-5" /> Submit Inquiry</>}
+                  {submitted ? '✓ Sent!' : <><Send className="w-4 h-4" /> Submit Enquiry</>}
                 </button>
               </div>
             </form>

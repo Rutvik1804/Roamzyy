@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { ChevronDown, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logo from '@/assets/roamzyy-logo.png';
+import logoWhite from '@/assets/Roamzyy-White-Logo.png';
+import logoColor from '@/assets/Roamzyy-Logo.png';
 
 const internationalDestinations = [
   { name: 'Dubai', path: '/international/dubai' },
@@ -59,10 +60,14 @@ const Header = () => {
       }`}
     >
       <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex items-center justify-between h-20">
+        <div className={`flex items-center justify-between transition-all duration-500 ${scrolled ? 'h-14' : 'h-20'}`}>
           {/* Logo */}
           <Link to="/" className="flex-shrink-0">
-            <img src={logo} alt="Roamzy" className="h-24 w-auto transition-all duration-500" />
+            <img 
+              src={scrolled ? logoColor : logoWhite} 
+              alt="Roamzy" 
+              className={`transition-all duration-500 ${scrolled ? 'h-24' : 'h-24'} w-auto`} 
+            />
           </Link>
 
           {/* Desktop Nav */}

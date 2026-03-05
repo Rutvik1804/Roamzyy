@@ -244,7 +244,7 @@ const AboutUsPage = () => {
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
               Join thousands of happy travelers who trusted Roamzy for their dream vacations
             </p>
-            <button className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-4 px-12 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg">
+            <button className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-2.5 px-8 rounded-full text-sm transition-all duration-300 transform hover:scale-105 shadow-md">
               Start Your Journey
             </button>
           </motion.div>

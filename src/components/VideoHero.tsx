@@ -69,7 +69,7 @@ const VideoHero = ({
           {ctaText && onCtaClick && (
             <button
               onClick={onCtaClick}
-              className="bg-accent hover:bg-accent/90 text-accent-foreground font-bold py-4 px-8 rounded-full text-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+              className="bg-accent hover:bg-accent/90 text-accent-foreground font-semibold py-2.5 px-6 rounded-full text-sm transition-all duration-300 transform hover:scale-105 shadow-md"
             >
               {ctaText}
             </button>
